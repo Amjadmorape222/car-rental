@@ -1,0 +1,604 @@
+/* =========================================
+   1. التنسيقات العامة للصفحة
+   ========================================= */
+.body2 {
+    font-family: Arial, Tahoma, sans-serif;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+    margin: 0; /* إزالة الفراغات الافتراضية حول الصفحة */
+    padding: 0;
+}
+
+/* =========================================
+   2. تنسيق شريط التنقل (متناسق مع ألوان الجدول)
+   ========================================= */
+.navbar2 {
+    background-color: #0F172A; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    border-bottom: 3px solid #000; /* خط سفلي أزرق لربطه بتصميم الجدول */
+}
+
+.navbar-brand2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff; /* لون اسم المكتب أزرق */
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links2 {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links2 li  a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.nav-links2 li a.active {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* تأثير مرور الماوس على الروابط غير النشطة */
+.nav-links2 li a:hover:not(.active) {
+    background-color: #e6f2ff;
+    color: #0056b3;
+}
+
+/* =========================================
+   3. تنسيق جدول السيارات
+   ========================================= */
+.table-car {
+    width: 80%;
+    margin: 40px auto; 
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.table-car td , .table-car th {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* ترويسة الجدول */
+.table_head {
+    background-color: #111a2f; 
+    color: white;
+    font-weight: bold;
+}
+
+/* صفوف التفاصيل الإضافية) */
+.extra-details2 td {
+    background-color: #E9ECEF; 
+    color: #2373F4;
+}
+/* تنسيق الحاوية التي تجمع الصورة والنص */
+.details-content2 {
+    
+    align-items: flex-start; 
+    gap: 25px; 
+    text-align: right;
+    padding: 10px;
+  
+}
+
+/* تنسيق صورة السيارة */
+.car-pic2 {
+    width: 200px; 
+    height: auto;
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+}
+
+/* تنسيق قائمة المواصفات */
+.specs-list2 {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    line-height: 1.8; 
+    font-size: 15px;
+    color: #333;
+}
+
+/* تمييز الكلمة الأولى من كل سطر (اختياري لجمالية أكثر) */
+.specs-list2 li {
+    border-bottom: 1px dashed #cce0f5; 
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.design-header2
+{
+    text-align: center;
+    padding: 10px 40px ;
+    background-color: #1E293B;
+    color: #cfe1f5
+     
+}
+   
+   .footer2 {
+    background-color: #0F172A; 
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0px; 
+    bottom: 0; 
+   
+    margin: 0;
+    width: 100%;
+   }
+   .footer2 .p2, .footer2 .p3 {
+    margin: 3px 0; 
+}
+
+.footer2 .p2 {
+    font-size: 22px; 
+}
+
+.footer2 .p3 {
+    font-size: 20px;
+    font-weight: normal; 
+    color: #cbd5e1; 
+}
+
+.action-container2 {
+    width: 90%; 
+    margin: 20px auto 40px auto; 
+    text-align: left; 
+}
+
+/* تنسيق شكل الزر */
+.continue-btn2 {
+    background-color: #0F172A; 
+    color: #ffffff;
+    border: none;
+    padding: 12px 35px; 
+    font-size: 18px;
+    font-weight: bold;
+    font-family: inherit; 
+    border-radius: 6px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-right: 20px;
+}
+
+/* تأثير عند تمرير الماوس فوق الزر */
+.continue-btn2:hover {
+    background-color: #0056b3; 
+}
+
+/* تأثير حركي خفيف عند الضغط على الزر */
+.continue-btn2:active {
+    transform: scale(0.96); 
+}
+.car-btn {
+    background-color: #0056b3; 
+    color: #ffffff;
+    border: none;
+    padding: 12px 35px; 
+    font-size: 18px;
+    font-weight: bold;
+    font-family: inherit; 
+    border-radius: 6px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* تأثير عند تمرير الماوس فوق الزر */
+.car-btn:hover {
+    background-color: #0F172A; 
+}
+
+/* تأثير حركي خفيف عند الضغط على الزر */
+.car-btn:active {
+    transform: scale(0.96);
+}
+/*-------------------------------------------------------------------------------------------*/
+/* General Page Style */
+ 
+/* Header */
+ #header { background-color: #142d4e;
+     color: white; 
+     text-align: center;
+      padding: 35px 20px; 
+      border-bottom: 5px solid #38bdf8; }
+#header h1
+ { font-size: 40px; margin: 0 0 12px 0; direction: ltr; letter-spacing: 2px; }
+#header h2
+ { font-size: 24px; margin: 0; color: #bae6fd; }
+/* Main Content */ 
+#content { width: 85%;
+     max-width: 1000px; 
+     margin: 35px auto;
+      padding: 30px;
+       background-color: white;
+        border-radius: 12px;
+         box-shadow: 0 4px 18px rgba(20, 45, 78, 0.12); }
+/* Section Headings */ 
+#content h2
+ { color: #175a8a; 
+    border-right: 5px solid #38bdf8; 
+    padding: 8px 12px;
+     margin-top: 30px; 
+     margin-bottom: 20px;
+      background-color: #f0f9ff; }
+/* Students Table */
+ .name-table { width: 100%; 
+    border-collapse: collapse;
+    
+    margin: 20px 0 30px 0; 
+    background-color: white; }
+.name-table th { background-color: #142d4e; 
+    color: white;
+     padding: 15px 10px;
+      font-size: 16px; }
+.name-table td { padding: 13px 10px; text-align: center; border: 1px solid #d5e1ec; }
+.name-table th { border: 1px solid #175a8a; }
+.name-table tbody tr:nth-child(even) { background-color: #edf6fc; }
+.name-table tbody tr:hover { background-color: #d9efff; }
+/* Website Link */
+ a { display: inline-block; color: white; background-color: #1683bd; padding: 12px 22px; text-decoration: none; border-radius: 6px; font-weight: bold; direction: ltr; }
+a:hover { background-color: #142d4e; }
+/* Paragraphs */ 
+#content p { line-height: 1.9; font-size: 16px; }
+/* Footer */
+ #footer { background-color: #142d4e; color: white; text-align: center; padding: 18px; margin-top: 30px; border-top: 4px solid #38bdf8; }
+#footer p { margin: 0; direction: ltr; }
+/* Small Screens */ 
+@media screen and (max-width: 600px) { #content { width: 90%; padding: 15px; box-sizing: border-box; }
+#header h1 {
+    font-size: 30px;
+}
+
+#header h2 {
+    font-size: 20px;
+}
+
+th, td {
+    padding: 8px 4px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+}
+/*-----------------------------------------------------------------------------------------------*/
+ :root {
+            --navy: #102a43;
+            --blue: #2463eb;
+            --light-blue: #eaf2ff;
+            --text: #243447;
+            --muted: #62748a;
+            --background: #f5f8fc;
+            --border: #dce5f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-wrap {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .brand span {
+            color: var(--blue);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--blue);
+        }
+
+        .hero {
+         
+            text-align: center;
+            padding: 65px 20px;
+             background-color: #1E293B;
+                 color: #cfe1f5
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 10px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #e8efff;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(16, 42, 67, 0.05);
+        }
+
+        h2 {
+            color: var(--navy);
+            margin-top: 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .feature {
+            background: var(--light-blue);
+            border: 1px solid #d6e5ff;
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .feature h3 {
+            color: var(--navy);
+            margin-top: 0;
+        }
+
+        .feature p {
+            color: var(--muted);
+            margin-bottom: 0;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            overflow-wrap: anywhere;
+        }
+
+        .contact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            display: inline-block;
+            min-width: 125px;
+            font-weight: bold;
+            
+            
+        }
+
+        .contact-list a {
+           
+            text-decoration: none;
+        }
+
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .branch-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 22px;
+box-shadow: 0 5px 20px rgba(16, 42, 67, 0.05);
+        }
+
+        .branch-tag {
+            display: inline-block;
+            background: var(--light-blue);
+            color: var(--blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .branch-card h3 {
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .branch-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .hours-note {
+            background: #fff8e6;
+            border: 1px solid #f4dfaa;
+            color: #72551a;
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 18px;
+            font-size: 13px;
+        }
+
+        .cta {
+            background: var(--navy);
+            color: white;
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .cta p {
+            margin-top: 0;
+            color: #d8e4f5;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            padding: 11px 18px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #174ac5;
+        }
+
+        footer {
+            margin-top: 45px;
+            background: #0b1f33;
+            color: #d9e4f0;
+            padding: 24px 5%;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 1500px) {
+            .nav-wrap {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .about-grid,
+            .features,
+            .branch-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .label {
+                min-width: 110px;
+            }
+
+            .cta {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+           .rentalForm {
+              text-align: center;
+              padding: 50px;
+              margin: 60px;
+              background-color: #f3f2f1;
+              border-radius: 40px;
+                      }  
+            
+             .blockfrome {
+              display: block;
+              
+              color: #1E293B;
+              font-size: 17px ;
+              
+             }
+                
+             .inputsty
+             {
+                 width: 359px;
+                 padding: 10px 12px;
+                 margin-bottom: 12px;    
+                 border: 1px solid #ccc;    
+                 border-radius: 20px;
+                 font-size: 15px; 
+                  outline: none; 
+                 transition: 0.3s; 
+                 box-sizing: border-box;
+             }
+             input:focus {
+              border-color: #111827;     
+              box-shadow: 0 0 5px rgba(17, 24, 39, 0.2); 
+}  
+       
+
+        
+    
+        
