@@ -1,29 +1,36 @@
 $(document).ready(function() {
-// إظهار وإخفاء تفاصيل السيارة
+// 1- إظهار وإخفاء تفاصيل السيارة
 $('.show-details2').change(function() {
+
     $(this).closest('tr')
            .next('.extra-details2')
            .toggle(this.checked);
+
 });
 
-// إظهار نموذج الاستئجار
-document.getElementById("continueBtn2")
-    .addEventListener("click", function() {
 
-        document.getElementById("rentalForm")
-            .style.display = "block";
+// 2- إظهار نموذج الاستئجار عند الضغط على متابعة
+$('#continueBtn2').click(function() {
 
+    $('#rentalForm').show();
+
+    $('#rentalForm')[0].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
     });
 
-// دالة حساب السعر
+});
+
+
+// 3- دالة حساب السعر
 function calculatePrice() {
 
     let selectedCar = document.querySelector(
         '.select-car2:checked'
     );
 
-    let start = document.getElementById("startDate").value;
-    let end = document.getElementById("endDate").value;
+    let start = $('#startDate').val();
+    let end = $('#endDate').val();
 
     let days = 0;
     let dailyPrice = 0;
@@ -31,7 +38,7 @@ function calculatePrice() {
     let discount = 0;
     let total = 0;
 
-    // سعر السيارة اليومي
+    // الحصول على سعر السيارة
     if (selectedCar) {
         dailyPrice = Number(selectedCar.value);
     }
@@ -39,19 +46,21 @@ function calculatePrice() {
     // حساب أيام الاستئجار
     if (start && end) {
 
-        let startDate = new Date(start + "T00:00:00");
-        let endDate = new Date(end + "T00:00:00");
+        let startDate = new Date(start + 'T00:00:00');
+        let endDate = new Date(end + 'T00:00:00');
 
         let difference = endDate - startDate;
 
         if (difference >= 0) {
+
             days = Math.floor(
                 difference / (1000 * 60 * 60 * 24)
             ) + 1;
+
         }
     }
 
-    // حساب السعر
+    // حساب السعر الأساسي
     subtotal = days * dailyPrice;
 
     // خصم 10% إذا تجاوز الاستئجار 7 أيام
@@ -59,50 +68,129 @@ function calculatePrice() {
         discount = subtotal * 0.10;
     }
 
+    // حساب السعر النهائي
     total = subtotal - discount;
 
     // عرض النتائج
-    document.getElementById("rentalDays").textContent = days;
+    $('#rentalDays').text(days);
 
-    document.getElementById("dailyPrice").textContent =
-        dailyPrice.toLocaleString();
+    $('#dailyPrice').text(
+        dailyPrice.toLocaleString()
+    );
 
-    document.getElementById("discountAmount").textContent =
-        discount.toLocaleString();
+    $('#discountAmount').text(
+        discount.toLocaleString()
+    );
 
-    document.getElementById("totalPrice").textContent =
-        total.toLocaleString();
+    $('#totalPrice').text(
+        total.toLocaleString()
+    );
+
 }
 
-// عند اختيار سيارة
-document.querySelectorAll(".select-car2")
-    .forEach(function(car) {
 
-        car.addEventListener("change", function() {
+// 4- اختيار سيارة واحدة فقط
+$('.select-car2').change(function() {
 
-            if (this.checked) {
+    if (this.checked) {
 
-                document.querySelectorAll(".select-car2")
-                    .forEach(function(otherCar) {
+        $('.select-car2').not(this).prop('checked', false);
 
-                        if (otherCar !== car) {
-                            otherCar.checked = false;
-                        }
+    }
 
-                    });
+    calculatePrice();
 
-            }
+});
 
-            calculatePrice();
 
-        });
+// 5- تحديث الحساب عند تغيير التواريخ
+$('#startDate, #endDate').change(function() {
 
-    });
+    calculatePrice();
 
-// تحديث الحساب عند تغيير التواريخ
-document.getElementById("startDate")
-    .addEventListener("change", calculatePrice);
+});
 
-document.getElementById("endDate")
-    .addEventListener("change", calculatePrice);
+
+// 6- التحقق من نموذج الاستئجار عند الضغط على إرسال
+$('#bookingForm').on('submit', function(e) {
+
+    e.preventDefault();
+
+    let form = this;
+
+    // التأكد من اختيار سيارة
+    let selectedCar = document.querySelector(
+        '.select-car2:checked'
+    );
+
+    if (!selectedCar) {
+
+        alert('يرجى اختيار سيارة أولاً');
+
+        return;
+    }
+
+
+    // التحقق من الحقول المطلوبة
+    if (!form.checkValidity()) {
+
+        form.reportValidity();
+
+        return;
+    }
+
+
+    // التحقق من الاسم الكامل
+    let name = $('#fullName').val().trim();
+
+    if (name === '') {
+
+        alert('يرجى إدخال الاسم الكامل');
+
+        return;
+    }
+
+
+    // التحقق من الرقم الوطني
+    let nationalID = $('#nationalID').val();
+
+    if (!/^[0-9]{11}$/.test(nationalID)) {
+
+        alert('الرقم الوطني يجب أن يتكون من 11 رقماً');
+
+        return;
+    }
+
+
+    // التحقق من رقم الموبايل
+    let phone = $('#phone').val();
+
+    if (!/^09[0-9]{8}$/.test(phone)) {
+
+        alert('رقم الموبايل يجب أن يبدأ بـ 09 ويتكون من 10 أرقام');
+
+        return;
+    }
+
+
+    // التحقق من التواريخ
+    let start = $('#startDate').val();
+    let end = $('#endDate').val();
+
+    if (end < start) {
+
+        alert('تاريخ نهاية التأجير يجب ألا يسبق تاريخ البداية');
+
+        return;
+    }
+
+
+    // تحديث حساب السعر
+    calculatePrice();
+
+
+    // إظهار رسالة النجاح
+    alert('تم التحقق من البيانات بنجاح! تم إرسال طلب الاستئجار.');
+
+});
 });
