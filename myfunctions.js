@@ -189,8 +189,28 @@ $('#bookingForm').on('submit', function(e) {
     calculatePrice();
 
 
-    // إظهار رسالة النجاح
+   // إظهار رسالة النجاح
     alert('تم التحقق من البيانات بنجاح! تم إرسال طلب الاستئجار.');
+
+    // تفريغ الحقول
+    form.reset();
+
+    // تصفير الحساب
+    $('#rentalDays').text(0);
+    $('#dailyPrice').text(0);
+    $('#discountAmount').text(0);
+    $('#totalPrice').text(0);
+
+    // إلغاء اختيار السيارة وإخفاء التفاصيل المفتوحة
+    $('.select-car2').prop('checked', false);
+    $('.show-details2').prop('checked', false);
+    $('.extra-details2').hide();
+
+    // إغلاق النموذج
+    $('#rentalForm').hide();
+
+    // الرجوع لأعلى الجدول
+    $('html, body').animate({ scrollTop: $('.table-car').offset().top - 20 }, 400);
 
 });
 });
