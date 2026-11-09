@@ -75,8 +75,13 @@
 
 .table-car td , .table-car th {
     padding: 8px 10px;
+   
     border: 1px solid #ddd;
     text-align: center;
+    overflow-wrap: normal;
+    word-break: normal;
+   
+    padding: 12px 3px
 }
 
 /* ترويسة الجدول */
@@ -536,7 +541,7 @@ box-shadow: 0 5px 20px rgba(16, 42, 67, 0.05);
             margin: 5px 0;
         }
 
-        @media (max-width: 1500px) {
+        @media (max-width: 768px) {
             .nav-wrap {
                 flex-direction: column;
             }
@@ -583,7 +588,7 @@ box-shadow: 0 5px 20px rgba(16, 42, 67, 0.05);
                 
              .inputsty
              {
-                 width: 359px;
+                 width: 300px;
                  padding: 10px 12px;
                  margin-bottom: 12px;    
                  border: 1px solid #ccc;    
@@ -596,6 +601,7 @@ box-shadow: 0 5px 20px rgba(16, 42, 67, 0.05);
              input:focus {
               border-color: #111827;     
               box-shadow: 0 0 5px rgba(17, 24, 39, 0.2); 
+              
 }  
        
 
